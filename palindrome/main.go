@@ -24,7 +24,6 @@ func main() {
 	}
 
 	reverse := reverseString(text)
-
 	if reverse == text {
 		isPalindrom = "est un Palindrome"
 	} else {
