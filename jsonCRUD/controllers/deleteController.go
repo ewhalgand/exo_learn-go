@@ -13,6 +13,7 @@ func DeleteContact() {
 	people, err := LoadContact()
 	if err != nil {
 		log.Println("Erreur lors de chargement des contacts")
+		return
 	}
 
 	reader := bufio.NewReader(os.Stdin)
@@ -41,6 +42,7 @@ func DeleteContact() {
 	file, err := os.Create("contacts.json")
 	if err != nil {
 		log.Println("Erreur lors de la réouverture du fichier")
+		return
 	}
 	defer file.Close()
 
@@ -48,6 +50,7 @@ func DeleteContact() {
 	encoder.SetIndent("", " ")
 	if err := encoder.Encode(deletePeople); err != nil {
 		log.Println("Erreur lors de l'encodage")
+		return
 	}
 
 	fmt.Println("Suppression réussi !")
